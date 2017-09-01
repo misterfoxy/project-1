@@ -13,6 +13,7 @@ PinPoint allows users to filter through massive data-sets, and view a leaderboar
 
 ## APIs Incorporated
 1. Google Maps
+	- API Key: AIzaSyAv32VxR93-wi4mFqNDhg21nFf9ioKHz2E
 2. CDC/WHO/UN/Socrata data-sets
 3. Firebase (User Authentication and saved maps)
 
