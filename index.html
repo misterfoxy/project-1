@@ -10,13 +10,59 @@
   </head>
   <body>
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-6" id="states">
+      <div class="jumbotron">
+        <div class="row">
+          <div id="sidebar" class="col-md-3">
+            <h2>PinPoint</h2>
+            <hr>
+            <p>DATASET</p>
 
-        </div>
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Datasets
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Drug Deaths in Maryland</a></li>
+                  <li><a href="#">Drunk Driving Deaths in United States</a></li>
+                  <li><a href="#">Worldwide Fertility Rates</a></li>
+                </ul>
+              </div>
+              <hr>
+            <p>SCALE</p>
 
-        <div class="col-md-6" id="deaths">
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Location
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">State</a></li>
+                  <li><a href="#">Nation</a></li>
+                  <li><a href="#">World</a></li>
+                </ul>
+              </div>
+              <hr>
 
+            <p>TIME</p>
+            <form class="form-inline">
+
+              <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Start Year">
+
+
+
+                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="End Year">
+
+
+
+
+
+            </form>
+
+            <a href="#" class="btn btn-info">PinPoint!</a>
+
+
+          </div>
+
+          <div class="col-md-9" id="map">
+            <p>put google map here</p>
+          </div>
 
         </div>
 
