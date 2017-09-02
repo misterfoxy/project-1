@@ -82,6 +82,8 @@ $(document).ready(function(){
   }       
 }
 
+initMap();
+
 
 
   //drunk driving deaths by state from 05-14 where driver had 0.8 or greater BAC
