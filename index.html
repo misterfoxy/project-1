@@ -2,16 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
+
     <title>PinPoint - A Data Map</title>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="https://use.fontawesome.com/93b7d7692d.js"></script>
   </head>
+
   <body>
+
     <div class="container-fluid">
       <div class="jumbotron">
         <div class="row">
+
           <div id="sidebar" class="col-md-3">
             <h2>PinPoint</h2>
             <hr>
@@ -39,7 +44,6 @@
                 </ul>
               </div>
               <hr>
-
             <p>TIME</p>
 
             <form class="form-inline">
@@ -47,16 +51,13 @@
               <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="End Year">
             </form>
             <a href="#" class="btn btn-info">PinPoint!</a>
-          </div>
-
-          <div class="col-md-9" id="map">
 
           </div>
+
+          <div class="col-md-9" id="map"></div>
 
         </div>
-
       </div>
-
     </div>
 
     <div class="container-fluid">
@@ -67,23 +68,104 @@
       </div>
     </div>
 
+    <!-- Link Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
     <script>
-    function initMap() {
-            var uluru = {lat: -25.363, lng: 131.044};
-            var map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 4,
-              center: uluru
+      function initMap() {
+
+        // map options
+        var options = {
+            zoom: 10,
+            center: {lat: 33.4484,lng: -112.0740}
+        }
+
+        // new map
+        var map = new google.maps.Map(document.getElementById("map"), options);
+
+
+        // Add Marker Function 
+        function addMarker(props){
+          var marker = new google.maps.Marker({
+          position: props.coords,
+          map: map,
+          // icon: props.iconImage
+        });
+        
+          // check for custom icon
+          if(props.iconImage) {
+            // set icon image
+            marker.setIcon(props.iconImage);
+          }
+          // check for content
+          if (props.content) {
+            // pop-up window
+            var infoWindow = new google.maps.InfoWindow({
+              content: props.content
             });
-            var marker = new google.maps.Marker({
-              position: uluru,
-              map: map
+            // click the marker to show the window
+            marker.addListener("click", function(){
+              infoWindow.open(map, marker);
             });
           }
+        }
+
+
+        // Array of markers
+        var markers = [
+          {
+          coords:{lat:33.4255,lng:-111.9400},
+          iconImage: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+          content: "<h4>Tempe, AZ</h4>"
+          },
+          {
+          coords:{lat: 33.307575,lng: -111.844940},
+          content: "<h4>Chandler, AZ</h4>"
+          },
+          {
+          coords:{lat: 33.5806,lng: -112.2374},
+          content: "<h4>Peoria, AZ</h4>"
+          }
+        ];
+
+        // loop thru markers array
+        for (var i = 0; i < markers.length; i++){
+          addMarker(markers[i]);
+        }
+
+
+
+        /*
+        // add marker
+        var marker = new google.maps.Marker({
+          position: {lat:33.4255,lng:-111.9400},
+          map: map,
+          icon: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
+        });
+
+        // pop-up window
+        var infoWindow = new google.maps.InfoWindow({
+          content: "<h4>Tempe, AZ</h4>"
+        });
+        // click the marker to show the window
+        marker.addListener("click", function(){
+          infoWindow.open(map, marker);
+        });*/
+        
+      }
+    </script> 
+
+    <!-- Google Map api --> 
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv32VxR93-wi4mFqNDhg21nFf9ioKHz2E&callback=initMap">
     </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv32VxR93-wi4mFqNDhg21nFf9ioKHz2E&callback=initMap"></script>
+
+
+    <!-- D3 stuff down the line
+    <script src="https://d3js.org/d3.v4.min.js"></script> -->
+
 
   </body>
 </html>

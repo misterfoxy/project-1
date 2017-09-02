@@ -1,19 +1,39 @@
 $(document).ready(function(){
+ 
+//   // Initialize Firebase
+//   var config = {
+//     apiKey: "AIzaSyA7EoNUx2snHlqW2iQyQUSfAAjNnOCtLps",
+//     authDomain: "pinpoint-1504233261910.firebaseapp.com",
+//     databaseURL: "https://pinpoint-1504233261910.firebaseio.com",
+//     projectId: "pinpoint-1504233261910",
+//     storageBucket: "pinpoint-1504233261910.appspot.com",
+//     messagingSenderId: "290809530653"
+//   };
+//   firebase.initializeApp(config);
 
+// var database = firebase.database();
+
+
+// Google Map code
   function initMap() {
-          var uluru = {lat: -25.363, lng: 131.044};
-          var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 4,
-            center: uluru
-          });
-          var marker = new google.maps.Marker({
-            position: uluru,
-            map: map
-          });
-        }
 
+    // map options
+    var options = {
+        zoom: 5,
+        center: {lat: 33.4484, lng: -112.0740}
+    }
 
+    // new map
+    var map = google.maps.Map($("#map"), options);
 
+    // add marker
+    var marker = new google.maps.Marker({
+      position: {lat:33.4255, lng:-111.9400},
+      map: map,
+      icon: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
+    })
+
+  }
 
 
 
