@@ -16,3 +16,9 @@ body {
 input {
 	margin-bottom: 10px;
 }
+
+#map{
+	margin-left: 40px;
+	height:400px;
+	width:70%;
+}

@@ -50,7 +50,7 @@
           </div>
 
           <div class="col-md-9" id="map">
-            <p>put google map here</p>
+
           </div>
 
         </div>
@@ -70,7 +70,20 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script>
+    function initMap() {
+            var uluru = {lat: -25.363, lng: 131.044};
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 4,
+              center: uluru
+            });
+            var marker = new google.maps.Marker({
+              position: uluru,
+              map: map
+            });
+          }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv32VxR93-wi4mFqNDhg21nFf9ioKHz2E&callback=initMap"></script>
 
   </body>
 </html>
