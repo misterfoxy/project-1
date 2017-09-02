@@ -72,9 +72,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script>
     function initMap() {
-            var uluru = {lat: -25.363, lng: 131.044};
+            var uluru = {lat: 39.299236, lng: -76.6122};
             var map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 4,
+              zoom: 6,
               center: uluru
             });
             var marker = new google.maps.Marker({
@@ -83,6 +83,10 @@
             });
           }
     </script>
+    <!--
+    We need to figure out how to take inline JS to external logic document
+    <script src="assets/js/app.js"></script>
+  -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv32VxR93-wi4mFqNDhg21nFf9ioKHz2E&callback=initMap"></script>
 
   </body>
