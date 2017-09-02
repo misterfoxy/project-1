@@ -73,6 +73,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+    <!-- Google Map code -->
     <script>
       function initMap() {
 
@@ -138,28 +139,9 @@
         // loop thru markers array
         for (var i = 0; i < markers.length; i++){
           addMarker(markers[i]);
-        }
-
-
-
-        /*
-        // add marker
-        var marker = new google.maps.Marker({
-          position: {lat:33.4255,lng:-111.9400},
-          map: map,
-          icon: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
-        });
-
-        // pop-up window
-        var infoWindow = new google.maps.InfoWindow({
-          content: "<h4>Tempe, AZ</h4>"
-        });
-        // click the marker to show the window
-        marker.addListener("click", function(){
-          infoWindow.open(map, marker);
-        });*/
-        
+        }       
       }
+
     </script> 
 
     <!-- Google Map api --> 
@@ -169,8 +151,8 @@
 
 
     <!-- D3 stuff down the line
-    <script src="https://d3js.org/d3.v4.min.js"></script> -->
-
+    <script src="https://d3js.org/d3.v4.min.js"></script> 
+    -->
 
   </body>
 </html>

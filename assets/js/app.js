@@ -17,23 +17,70 @@ $(document).ready(function(){
 // Google Map code
   function initMap() {
 
-    // map options
-    var options = {
-        zoom: 5,
-        center: {lat: 33.4484, lng: -112.0740}
-    }
-
-    // new map
-    var map = google.maps.Map($("#map"), options);
-
-    // add marker
-    var marker = new google.maps.Marker({
-      position: {lat:33.4255, lng:-111.9400},
-      map: map,
-      icon: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
-    })
-
+  // map options
+  var options = {
+      zoom: 10,
+      center: {lat: 33.4484,lng: -112.0740}
   }
+
+  // new map
+  var map = new google.maps.Map(document.getElementById("map"), options);
+
+  // listen for click on map
+  google.maps.event.addListener(map, "click", function(event){
+    // add marker at location of click
+    addMarker({coords:event.latLng});
+  });
+
+  // Add Marker Function 
+  function addMarker(props){
+    var marker = new google.maps.Marker({
+    position: props.coords,
+    map: map,
+    // icon: props.iconImage
+  });
+  
+    // check for custom icon
+    if(props.iconImage) {
+      // set icon image
+      marker.setIcon(props.iconImage);
+    }
+    // check for content
+    if (props.content) {
+      // pop-up window
+      var infoWindow = new google.maps.InfoWindow({
+        content: props.content
+      });
+      // click the marker to show the window
+      marker.addListener("click", function(){
+        infoWindow.open(map, marker);
+      });
+    }
+  }
+
+
+  // Array of markers
+  var markers = [
+    {
+    coords:{lat:33.4255,lng:-111.9400},
+    iconImage: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+    content: "<h4>Tempe, AZ</h4>"
+    },
+    {
+    coords:{lat: 33.307575,lng: -111.844940},
+    content: "<h4>Chandler, AZ</h4>"
+    },
+    {
+    coords:{lat: 33.5806,lng: -112.2374},
+    content: "<h4>Peoria, AZ</h4>"
+    }
+  ];
+
+  // loop thru markers array
+  for (var i = 0; i < markers.length; i++){
+    addMarker(markers[i]);
+  }       
+}
 
 
 
