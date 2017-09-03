@@ -52,6 +52,9 @@
             </form>
             <a href="#" class="btn btn-info">PinPoint!</a>
 
+            <a href="#" class="btn btn-info" id="testDD">Test DD data</a>
+
+
           </div>
 
           <div class="col-md-9" id="map"></div>
@@ -73,89 +76,19 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-    <!-- Google Map code -->
-    <script>
-      function initMap() {
-
-        // map options
-        var options = {
-            zoom: 10,
-            center: {lat: 33.4484,lng: -112.0740}
-        }
-
-        // new map
-        var map = new google.maps.Map(document.getElementById("map"), options);
-
-        // listen for click on map
-        google.maps.event.addListener(map, "click", function(event){
-          // add marker at location of click
-          addMarker({coords:event.latLng});
-        });
-
-        // Add Marker Function
-        function addMarker(props){
-          var marker = new google.maps.Marker({
-          position: props.coords,
-          map: map,
-          // icon: props.iconImage
-        });
-
-          // check for custom icon
-          if(props.iconImage) {
-            // set icon image
-            marker.setIcon(props.iconImage);
-          }
-          // check for content
-          if (props.content) {
-            // pop-up window
-            var infoWindow = new google.maps.InfoWindow({
-              content: props.content
-            });
-            // click the marker to show the window
-            marker.addListener("click", function(){
-              infoWindow.open(map, marker);
-            });
-          }
-        }
 
 
-        // Array of markers
-        var markers = [
-          {
-          coords:{lat:33.4255,lng:-111.9400},
-          iconImage: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
-          content: "<h4>Tempe, AZ</h4>"
-          },
-          {
-          coords:{lat: 33.307575,lng: -111.844940},
-          content: "<h4>Chandler, AZ</h4>"
-          },
-          {
-          coords:{lat: 33.5806,lng: -112.2374},
-          content: "<h4>Peoria, AZ</h4>"
-          }
-        ];
 
-        // loop thru markers array
-        for (var i = 0; i < markers.length; i++){
-          addMarker(markers[i]);
-        }
-      }
 
-    </script>
+
+
 
     <!-- Google Map api -->
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv32VxR93-wi4mFqNDhg21nFf9ioKHz2E&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv32VxR93-wi4mFqNDhg21nFf9ioKHz2E">
     </script>
-
-    <!--
-    We need to figure out how to take inline JS to external logic document
+    <!-- Google Map external js file -->
     <script src="assets/js/app.js"></script>
-  -->
-
-
-
 
     <!-- D3 stuff down the line
     <script src="https://d3js.org/d3.v4.min.js"></script>
