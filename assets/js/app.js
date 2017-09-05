@@ -1,24 +1,9 @@
 $(document).ready(function(){
- 
+
 // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyA7EoNUx2snHlqW2iQyQUSfAAjNnOCtLps",
-    authDomain: "pinpoint-1504233261910.firebaseapp.com",
-    databaseURL: "https://pinpoint-1504233261910.firebaseio.com",
-    projectId: "pinpoint-1504233261910",
-    storageBucket: "pinpoint-1504233261910.appspot.com",
-    messagingSenderId: "290809530653"
-  };
-  firebase.initializeApp(config);
+var database = firebase.database();
 
-  var database = firebase.database();
-
-// -------------------------------------------------------- //
-
-
-
-
-//**************GLOBAL VARIABLES**************// 
+//**************GLOBAL VARIABLES**************//
 
 // Array of markers...used for early testing
 var markers = [
@@ -39,12 +24,11 @@ var markers = [
 
 var dataArray = [];
 
-
-//****************FUNCTIONS****************// 
+//****************FUNCTIONS****************//
 
 // Adding click event listen listener to testDD button
   $("#testDD").on("click", function() {
-    
+
     // Constructing a queryURL
     var queryURL = "https://data.cdc.gov/resource/xhcb-kq4k.json";
 
@@ -64,7 +48,7 @@ var dataArray = [];
             // store values for simplicity/clarity
             var deaths = response[i].alcohol_impaired_driving_deaths;
             var stName = response[i].state_state;
-            // get the latitude and longitude values 
+            // get the latitude and longitude values
             var x = response[i].state.coordinates[1];
             var y = response[i].state.coordinates[0];
 
@@ -74,7 +58,7 @@ var dataArray = [];
             var deathsPopUp = {popUp:"<h4>"+stName+" had "+deaths+" drunk driver deaths</h4>"};
             // new object for the marker labels
             var deathsLabel = {label:deaths};
-            
+
             // add each object to the json object
             $.extend(response[i], deathsLabel, deathsPopUp, latLong);
           }
@@ -108,14 +92,14 @@ var dataArray = [];
     //     addMarker({coords:event.latLng});
     //   });
 
-    // Add Marker Function 
+    // Add Marker Function
       function addMarker(props){
         var marker = new google.maps.Marker({
           position: props.coords,
           map: map,
           label: props.label
         });
-      
+
         // check for custom icon
         if(props.iconImage) {
           // set icon image
@@ -138,49 +122,11 @@ var dataArray = [];
       // loop thru markers array
       for (var i = 0; i < dataArray.length; i++){
         addMarker(dataArray[i]);
-      }       
+      }
   };
 
   google.maps.event.addDomListener(window, "load", initMap);
 
 
-
-
-
-//Michael's code
-  //drunk driving deaths by state from 05-14 where driver had 0.8 or greater BAC
-  // var queryURL = 'https://data.cdc.gov/resource/xhcb-kq4k.json';
-  // $.ajax({
-  //   url: queryURL,
-  //   method: "GET"
-  // }).done(function(data){
-  //
-  //
-  //   var states = [];
-  //   var deaths = [];
-  //
-  //   for(var i = 0; i < data.length; i++){
-  //     states.push(data[i].state_state);
-  //     deaths.push(data[i].alcohol_impaired_driving_deaths);
-  //
-  //     var newState = $('<p>');
-  //     newState.text(states[i]);
-  //     $('#states').append(newState);
-  //
-  //     var newDeath = $('<p>');
-  //     newDeath.text(deaths[i]);
-  //     $('#deaths').append(newDeath);
-  //
-  //
-  //
-  //     };
-      /* sort number of casualties from highest to lowest
-      deaths.sort(function(a,b){return b-a});
-      console.log(deaths);
-      */
-  //   }
-  //
-  //
-  // );
 
 });
