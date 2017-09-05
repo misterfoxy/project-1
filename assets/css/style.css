@@ -1,29 +1,33 @@
 body {
 	background: #34aac1;
 }
-h2 {
-	padding: 0 0 6px 0; font: bold 18px/18px "Verdana", sans-serif;
+.statesName {
+	padding: 12px 0 6px 0; font: bold 18px/18px "Verdana", sans-serif;
 	text-align: center;
-	margin-top: 10px;
+	margin: 10px;
 	width: 250px;
     height: 50px;
     background-color: yellow;
-    box-shadow: 10px 10px 5px #888888;
-    text-shadow: 2px 2px 5px red;
+    color: blue;
+    box-shadow: blur;
+    border-radius: 5px;
 }
-h3 {
-	padding: 0 0 6px 0; font: bold 18px/18px "Verdana", sans-serif;
+.list-states {
+	display: inline-block;
+	padding: 20px;
+}
+.deathData {
+	padding: 12px 0 6px 0; font: bold 18px/18px "Verdana", sans-serif;
 	text-align: center;
 	margin-top: 10px;
 	width: 250px;
     height: 50px;
     background-color: yellow;
-    box-shadow: 10px 10px 5px #888888;
-    text-shadow: 2px 2px 5px red;
+    color:blue;
+    box-shadow: blur;
+    border-radius: 5px;
+}
+.list-deathData {
+	display: inline-block;
 }
 
-#states {
-	 font-weight: bold;
-	 font-size: 18px;
-	 color: black;
-}
