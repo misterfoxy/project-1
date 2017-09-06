@@ -21,6 +21,7 @@ var markers = [
   popUp: "<h4>Peoria, AZ</h4>"
   }
 ];
+var options = {};
 
 var dataArray = [];
 
@@ -55,7 +56,7 @@ var dataArray = [];
             // new, correctly laid out object for coords
             var latLong = {coords:{lat: x,lng: y}};
             // new object for onclick pop up window
-            var deathsPopUp = {popUp:"<h4>"+stName+" had "+deaths+" drunk driver deaths</h4>"};
+            var deathsPopUp = {popUp:"<h4 id='pop'>"+stName+" had "+deaths+" drunk driver deaths</h4>"};
             // new object for the marker labels
             var deathsLabel = {label:deaths};
 
@@ -77,7 +78,7 @@ var dataArray = [];
   function initMap() {
 
     // map options
-    var options = {
+      options = {
         zoom: 4,
         center: {lat: 39.8283,lng: -98.5795}
     }
