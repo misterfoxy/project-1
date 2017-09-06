@@ -23,6 +23,8 @@ var markers = [
 ];
 var options = {};
 
+var queryURL = "https://data.cdc.gov/resource/xhcb-kq4k.json";
+
 var dataArray = [];
 
 //****************FUNCTIONS****************//
@@ -31,7 +33,7 @@ var dataArray = [];
   $("#testDD").on("click", function() {
 
     // Constructing a queryURL
-    var queryURL = "https://data.cdc.gov/resource/xhcb-kq4k.json";
+    queryURL = "https://data.cdc.gov/resource/xhcb-kq4k.json";
 
     // Performing an AJAX request with the queryURL
     $.ajax({
