@@ -20,43 +20,31 @@
           <div id="sidebar" class="col-md-3">
             <h2>PinPoint</h2>
             <hr>
-            <p>DATASET</p>
+            <p>DATASETS</p>
             <span id="dataset"></span>
 
-            <div class="dropdown">
-              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Datasets
-                <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                  <li id="sets"><a href="#">Drug Deaths in Maryland</a></li>
-                  <li id="sets"><a href="#">Drunk Driving Deaths in United States</a></li>
-                  <li id="sets"><a href="#">Worldwide Population Rates</a></li>
-                </ul>
-              </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="datasets" id="drugDeaths" value="https://data.maryland.gov/resource/ryrr-nv83.json" checked>
+                (local) Drug Deaths in Maryland '08-'16
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="datasets" id="drunkDriving" value="https://data.cdc.gov/resource/xhcb-kq4k.json">
+                (national) Drunk Driving Deaths in United States
+              </label>
+            </div>
+            <div class="form-check ">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="datasets" id="exampleRadios3" value="https://pinpoint-1504233261910.firebaseio/worldPop.json">
+                (global) Worldwide Population Rates
+              </label>
+            </div>
 
-              <hr>
-            <p>SCALE</p>
+            <hr>
 
-            <div class="dropdown">
-              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Location
-                <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">State</a></li>
-                  <li><a href="#">Nation</a></li>
-                  <li><a href="#">World</a></li>
-                </ul>
-              </div>
-              <hr>
-            <p>TIME</p>
-
-            <form class="form-inline">
-              <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Start Year">
-              <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="End Year">
-            </form>
-            <a href="#" class="btn btn-info" id="pinpoint">PinPoint!</a>
-
-            <a href="#" class="btn btn-info" id="testDD">Test DD data</a>
-            <a href="#" class="btn btn-danger" id="drugTest">Test Drug Data</a>
-
+            <a class="btn btn-info" id="pinpoint">PinPoint!</a>
 
           </div>
 
@@ -94,6 +82,8 @@
     <script src="assets/js/config.js"></script>
     <!-- Google Map external js file -->
     <script src="assets/js/app.js"></script>
+
+    <script src="assets/js/parameters.js"></script>
 
     <!-- D3 stuff down the line
     <script src="https://d3js.org/d3.v4.min.js"></script>
