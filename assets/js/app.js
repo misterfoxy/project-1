@@ -21,7 +21,10 @@ var markers = [
   popUp: "<h4>Peoria, AZ</h4>"
   }
 ];
-var options = {};
+var options = {
+    zoom: 4,
+    center: {lat: 39.8283,lng: -98.5795}
+}
 
 var dataArray = [];
 
@@ -37,7 +40,7 @@ $('#drugTest').on("click", function(){
     for(var i=0; i< data.length; i++){
       console.log(data[i]);
     }
-    
+
   });
 });
 
@@ -92,10 +95,7 @@ $('#drugTest').on("click", function(){
   function initMap() {
 
     // map options
-      options = {
-        zoom: 4,
-        center: {lat: 39.8283,lng: -98.5795}
-    }
+
 
     // new map
     var map = new google.maps.Map(document.getElementById("map"), options);
