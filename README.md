@@ -22,13 +22,13 @@ PinPoint allows users to filter through massive data-sets, and view a leaderboar
 2. Parsing data into JSON
 3. Create Google Map Clusters with respective datasets
 4. Create User Interface For Searching data
-  * Disease Outbreaks
-  * Agriculture Production
-  * Birth Rates
-  * Crime Rates
-  * Test Scores
-  * Migrations
-  * _Anything else you can imagine_
+    * Disease Outbreaks
+    * Agriculture Production
+    * Birth Rates
+    * Crime Rates
+    * Test Scores
+    * Migrations
+    * _Anything else you can imagine_
 5. Listing relevant data in plain english
 6. Incorporate Modals for Leaderboard/Relevant Information
 7. Use InfoBubble to display multiple years of data at once
