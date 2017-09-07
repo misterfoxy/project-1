@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
 // Initialize Firebase
 var database = firebase.database();
@@ -28,6 +28,8 @@ var options = {
 
 var dataArray = [];
 
+
+
 //****************FUNCTIONS****************//
 
 $('#drugTest').on("click", function(){
@@ -37,12 +39,15 @@ $('#drugTest').on("click", function(){
     url: queryURL,
     method: "GET"
   }).done(function(data){
+    dataArray = [];
     for(var i=0; i< data.length; i++){
-      console.log(data[i]);
+      dataArray.push(data[i]);
     }
-
+    console.log(dataArray);
   });
 });
+
+
 
 // Adding click event listen listener to testDD button
   $("#testDD").on("click", function() {
@@ -57,6 +62,7 @@ $('#drugTest').on("click", function(){
       })
       // After data comes back from the request
       .done(function(response) {
+        dataArray = [];
 
         // Store the data into the global array
         for (var i = 0; i < response.length; i++) {

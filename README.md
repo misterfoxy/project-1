@@ -1,5 +1,5 @@
 # PinPoint
-A Data Mapping Application built with AngularJS
+A Data Map
 
 ## Team Members
  - Tyler Mitchell
@@ -9,13 +9,14 @@ A Data Mapping Application built with AngularJS
 ## Description
 PinPoint allows users to filter through massive data-sets, and view a leaderboard of clusters on top of a Google Mapping
 
-## Sketch of Final Project
 
 ## APIs Incorporated
 1. Google Maps
 	- API Key: AIzaSyAv32VxR93-wi4mFqNDhg21nFf9ioKHz2E
-2. CDC/WHO/UN/Socrata data-sets
-3. Firebase (User Authentication and saved maps)
+2. CDC data-sets
+3. Firebase (Converted CSV objects)
+4. Google Maps Info Bubble
+
 
 ## Breakdown of Tasks
 
@@ -31,3 +32,5 @@ PinPoint allows users to filter through massive data-sets, and view a leaderboar
   - Migrations
   - Anything else we think of
 5. Listing relevant data in plain english
+6. Incorporate Modals for Leaderboard/Relevant Information
+7. Use InfoBubble to display multiple years of data at once
