@@ -27,6 +27,20 @@ var dataArray = [];
 
 //****************FUNCTIONS****************//
 
+$('#drugTest').on("click", function(){
+  var queryURL = 'https://data.maryland.gov/resource/ryrr-nv83.json';
+
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).done(function(data){
+    for(var i=0; i< data.length; i++){
+      console.log(data[i]);
+    }
+    
+  });
+});
+
 // Adding click event listen listener to testDD button
   $("#testDD").on("click", function() {
 
