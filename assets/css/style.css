@@ -25,3 +25,10 @@ input {
 	width:70%;
 	border: 5px solid #eee;
 }
+.modal-header {
+	background: #59f442;
+	color: white;
+}
+.modal-footer {
+	background: #59f442;
+}
