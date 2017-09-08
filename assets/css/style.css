@@ -25,6 +25,15 @@ input {
 	width:70%;
 	border: 5px solid #eee;
 }
+
 .timeBtn{
 	margin: 5px 5px 5px 5px;
+}
+
+.modal-header {
+	background: #59f442;
+	color: white;
+}
+.modal-footer {
+	background: #59f442;
 }
