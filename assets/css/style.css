@@ -10,9 +10,17 @@ body {
 	border: 5px solid #383838;
 }
 
+#headPin{
+	font-family: 'Comfortaa', cursive;
+}
+
 #sidebar {
 	border-right: 2px solid black;
 
+}
+
+.form-check{
+	font-family: 'Raleway', sans-serif;
 }
 
 input {
