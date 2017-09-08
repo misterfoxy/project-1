@@ -39,9 +39,9 @@ input {
 }
 
 .modal-header {
-	background: #59f442;
+	background: linear-gradient(to right,#e22b2b, #aa3636);
 	color: white;
 }
 .modal-footer {
-	background: #59f442;
+	background: linear-gradient(to left,#e22b2b, #aa3636);
 }
