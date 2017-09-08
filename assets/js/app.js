@@ -31,6 +31,8 @@ var database = firebase.database();
 
 //****************FUNCTIONS****************//
 
+/*
+
   // It all starts with the click on the PinPoint! button...
     $("#pinpoint").on("click", function() {
         // To find out which dataset was checked, we'll grab all radio buttons
@@ -182,7 +184,7 @@ var database = firebase.database();
 
 
 
-
+*/
 
 
 
