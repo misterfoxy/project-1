@@ -259,7 +259,7 @@ var year = 2014;
     });
 
 
-  // Creat buttons in bottom left to sort thru years of data
+  // Create buttons in bottom left to sort thru years of data
   function makeTimeButtons(){
       // Create the HTML for where to display this
       var title = "<p>Time</p>";
@@ -273,7 +273,7 @@ var year = 2014;
         var newBtn = $('<button>');
         newBtn.text(years[i]);
         newBtn.attr('data-year', yearNum);
-        newBtn.addClass('btn btn-warning timeBtn');
+        newBtn.addClass('btn btn-warning btn-xs timeBtn');
         $('#timeButtons').append(newBtn);
       }
     };
