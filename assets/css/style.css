@@ -47,10 +47,31 @@ input {
 }
 
 
-#pop {
-	background: yellow;
-	color: blue;
+#pop .popTitle {
+	font-family: 'Open Sans Condensed', sans-serif;
+   font-size: 22px;
+   font-weight: 400;
+   padding: 10px;
+   background-color: #48b5e9;
+   color: white;
+   margin: 1px;
+   border-radius: 0 0 2.5px 0;
+
 }
+
+.gm-style-iw {
+   width: 350px !important;
+   top: 0 !important;
+   left: 0 !important;
+   border-radius: 2px 2px 0 0;
+}
+
 ul {
 	list-style-type:none;
+	padding-top: 10px;
+	letter-spacing: 1.15px;
+}
+
+li{
+	line-height: 17.5px;
 }
