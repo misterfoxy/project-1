@@ -174,7 +174,7 @@ $(document).ready(function() {
             };
             // object for onclick pop up window
             var deathsPopUp = {
-              popUp: "<h4 id='pop'>" + stName + " had " + deaths + " drunk driver deaths</h4>"
+              popUp: "<div id='pop'><div class='popTitle'>" + stName + "</div><p> had " + deaths + " drunk driver deaths</p></div>"
             };
             // object for the marker labels
             var deathsLabel = {
@@ -276,7 +276,6 @@ $(document).ready(function() {
   });
 
 
-<<<<<<< HEAD
   // Creat buttons in bottom left to sort thru years of data
   function makeTimeButtons() {
     // Create the HTML for where to display this
@@ -295,26 +294,9 @@ $(document).ready(function() {
       $('#timeButtons').append(newBtn);
     }
   };
-=======
-  // Create buttons in bottom left to sort thru years of data
-  function makeTimeButtons(){
-      // Create the HTML for where to display this
-      var title = "<p>Time</p>";
-      var buttons = "<div id='timeButtons'></div>"
-      $("#timeArea").html(title+buttons);
-      $('#timeButtons').empty();
 
-      years.sort();
-      for(var i=0; i<years.length; i++){
-        var yearNum = parseInt(years[i]);
-        var newBtn = $('<button>');
-        newBtn.text(years[i]);
-        newBtn.attr('data-year', yearNum);
-        newBtn.addClass('btn btn-warning btn-xs timeBtn');
-        $('#timeButtons').append(newBtn);
-      }
-    };
->>>>>>> 0ede6e0d05fd3a546a7064bf85ab984442e76970
+
+
 
 
   //**************GOOGLE MAP**************//
