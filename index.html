@@ -1,135 +1,136 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
+<head>
+  <meta charset="utf-8">
 
-    <title>PinPoint - A Data Map</title>
+  <title>PinPoint - A Data Map</title>
+  
+  <!-- Link Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- Link Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <!-- Link Custom CSS -->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <!-- Link Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa|Raleway" rel="stylesheet">
+  <!-- Link Font Awesome JS -->
+  <script src="https://use.fontawesome.com/93b7d7692d.js"></script>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Raleway" rel="stylesheet">
-    <script src="https://use.fontawesome.com/93b7d7692d.js"></script>
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <div class="container-fluid">
-      <div class="jumbotron">
-        <div class="row">
+  <div class="container-fluid">
+    <!-- Main content -->
+    <div class="jumbotron">
+      <div class="row">
 
-          <div id="sidebar" class="col-md-3">
-            <h2 id="headPin">PinPoint</h2>
-            <hr>
-            <p>DATASETS</p>
-            <span id="dataset"></span>
+        <!-- Sidebar for selecting data/options navigation -->
+        <div id="sidebar" class="col-md-3">
+          <h2 id="headPin">PinPoint</h2>
+          <hr>
+          <p>DATASETS</p>
 
-            <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="datasets" id="drugDeaths" value="https://data.maryland.gov/resource/ryrr-nv83.json" checked>
-                (local) Drug Deaths in Maryland '08-'16
-              </label>
-            </div>
-            <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="datasets" id="drunkDriving" value="https://data.cdc.gov/resource/xhcb-kq4k.json">
-                (national) Drunk Driving Deaths in United States
-              </label>
-            </div>
-            <div class="form-check ">
-              <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="datasets" id="exampleRadios3" value="https://pinpoint-1504233261910.firebaseio.com/worldPop.json">
-                (global) Worldwide Population Rates
-              </label>
-            </div>
-
-            <hr>
-
-            <a class="btn btn-info" id="pinpoint">PinPoint!</a>
-            <a class="btn btn-success" id="testDD">testDD Data</a>
-            <a class="btn btn-danger" id="drugTest">Test Maryland</a>
-            <button type="button" class="btn btn-info btn" data-toggle="modal" data-target="#myModal">Modals</button>
-            <hr>
-
-            <p>TIME</p>
-
-            <div id="timeButtons">
-
-            </div>
-
-
+          <!-- Radio buttons to select one data set at a time -->
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="datasets" id="drugDeaths" value="https://data.maryland.gov/resource/ryrr-nv83.json" checked>
+              (local) Maryland Drug Deaths 2008-2016
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="datasets" id="drunkDriving" value="https://data.cdc.gov/resource/xhcb-kq4k.json">
+              (national) US Drunk Driving Deaths, total from 2005-2014
+            </label>
+          </div>
+          <div class="form-check ">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="datasets" id="exampleRadios3" value="https://pinpoint-1504233261910.firebaseio.com/worldPop.json">
+              (global) Worldwide Population Rates 1990-2014
+            </label>
           </div>
 
-          <div class="col-md-9" id="map">
+          <hr>
 
-          </div>
+          <!-- Main function button -->
+          <a class="btn btn-info" id="pinpoint">PinPoint!</a>
+
+          <!-- ***********TEST MD DATA...TO BE REMOVED*********** --><!-- ***********TEST MD DATA...TO BE REMOVED*********** --><!-- ***********TEST MD DATA...TO BE REMOVED*********** -->
+          <!-- <a class="btn btn-danger" id="drugTest">Test Maryland</a> -->
+
+          <!-- <a class="btn btn-danger" id="makeTime">makeTimeBtn</a> -->
+
+          <!-- Leaderboard Button -->
+          <a class="btn btn-info btn" data-toggle="modal" data-target="#leaderboard">Data Leaderboard</a>
+
+          <hr>
+          
+          <!-- This will be where the Time Buttons are generated, if needed. -->
+          <div id="timeArea"></div>
+          
+          <!-- <p id="timeArea"></p>
+          <div id="timeButtons"></div> -->
 
         </div>
+        
+        <!-- Google Map to display here -->
+        <div class="col-md-9" id="map"></div>
+
       </div>
-
-
-
-        <div class="modal fade" id="myModal" role="dialog">
-          <div class="modal-dialog">
-
-
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Display data in order of highest number</h4>
-              </div>
-              <div class="modal-body">
-                <p>State data in here</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-    
-
     </div>
 
-
-
-
-
-    <div class="container-fluid">
-      <div class="row text-center">
-        <div class="col-md-12">
-          Tyler / Sanchita / Michael
+    <!-- Modal -->
+    <div class="modal fade" id="leaderboard" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Display data in order of highest number</h4>
+          </div>
+          <div class="modal-body">
+            <p>State data in here</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Link Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </div>
 
 
 
 
+<!-- Footer -->
+  <div class="container-fluid">
+    <div class="row text-center">
+      <div class="col-md-12">
+        Tyler / Sanchita / Michael
+      </div>
+    </div>
+  </div>
 
 
 
+  <!-- Link Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-    <!-- Google Map api -->
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv32VxR93-wi4mFqNDhg21nFf9ioKHz2E">
-    </script>
-    <!-- external firebase config js file-->
-    <script src="assets/js/config.js"></script>
-    <!-- Google Map external js file -->
-    <script src="assets/js/app.js"></script>
+  <!-- Google Map api -->
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv32VxR93-wi4mFqNDhg21nFf9ioKHz2E">
+  </script>
+  <!-- external firebase config js file-->
+  <script src="assets/js/config.js"></script>
+  <!-- Google Map external js file -->
+  <script src="assets/js/app.js"></script>
 
-    <!-- D3 stuff down the line
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    -->
+  <!-- D3 stuff down the line
+  <script src="https://d3js.org/d3.v4.min.js"></script> -->
+  
 
-
-  </body>
+</body>
 </html>

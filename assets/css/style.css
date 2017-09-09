@@ -35,7 +35,7 @@ input {
 }
 
 .timeBtn{
-	margin: 5px 5px 5px 5px;
+	margin: 5px;
 }
 
 .modal-header {
@@ -44,4 +44,13 @@ input {
 }
 .modal-footer {
 	background: linear-gradient(to left,#e22b2b, #aa3636);
+}
+
+
+#pop {
+	background: yellow;
+	color: blue;
+}
+ul {
+	list-style-type:none;
 }
