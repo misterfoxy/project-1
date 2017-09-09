@@ -46,7 +46,6 @@ input {
 	background: linear-gradient(to left,#e22b2b, #aa3636);
 }
 
-
 #pop .popTitle {
 	font-family: 'Open Sans Condensed', sans-serif;
    font-size: 22px;
@@ -56,7 +55,6 @@ input {
    color: white;
    margin: 1px;
    border-radius: 0 0 2.5px 0;
-
 }
 
 .gm-style-iw {
