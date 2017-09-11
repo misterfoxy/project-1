@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('#leaderboard').modal('show');
+  $('#alertUser').modal('show');
   // Initialize Firebase
   var database = firebase.database();
 
