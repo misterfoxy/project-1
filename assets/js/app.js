@@ -1,9 +1,11 @@
 $(document).ready(function() {
-
+  $('#leaderboard').modal('show');
   // Initialize Firebase
   var database = firebase.database();
 
   //**************GLOBAL VARIABLES**************//
+
+
 
   // Google Map options. Initial settings on Arizona
   var options = {
@@ -295,6 +297,14 @@ $(document).ready(function() {
     }
   };
 
+  //added dynamically generated button onclick to pull data year
+  $(document).on("click", '.timeBtn', grabYear);
+
+  function grabYear(){
+    let years = $(this).attr('data-year');
+    console.log(years);
+  }
+
 
 
 
@@ -364,13 +374,7 @@ $(document).ready(function() {
    iwBackground.children(':nth-child(4)').css({'display' : 'none'});
 
 
-});
-
-
-
-
-
-
+ });
 
   // Closes the whole document.ready function
 });
