@@ -303,7 +303,57 @@ $(document).ready(function() {
   function grabYear(){
     let years = $(this).attr('data-year');
     console.log(years);
+    console.log(dataArray);
+    clickedYear = years;
+    for (var i = 0; i < dataArray.length; i++) {
+      // Now we have actions depending on which dataset was chosen.
+      // If it the data is the ***DRUG DEATHS*** data
+      if (dataArray[i].calendar_year) {
+
+
+        // These will be the values of deaths for the corresponding year only
+        // See global var clickedYear for correct year
+        // This value changes when the user clicks a Time Button
+        if (dataArray[i].calendar_year == clickedYear) {
+          var alcohol = dataArray[i].alcohol_deaths;
+          var benzo = dataArray[i].benzodiazepine_deaths;
+          var cocaine = dataArray[i].cocaine_deaths;
+          var fentanyl = dataArray[i].fentanyl_deaths;
+          var heroin = dataArray[i].heroin_deaths;
+          var opiod = dataArray[i].prescription_opiod_deaths;
+        }
+
+        console.log("+++++++++++++++++++++++++++++++");
+        console.log("Current Year: " + dataArray[i].calendar_year);
+        console.log("Clicked Year: " + clickedYear);
+        console.log("1. Alcohol: " + alcohol);
+        console.log("2. Benzos: " + benzo);
+        console.log("3. Cocaine: " + cocaine);
+        console.log("4. Fentanyl: " + fentanyl);
+        console.log("5. Heroin: " + heroin);
+        console.log("6. Prescription Opiod: " + opiod);
+
+        console.log("+++++++++++++++++++++++++++++++");
+
+        var deathsPopUp = {
+          popUp: '<div id="pop">' +
+            '<div class="popTitle">Overdose Deaths in Maryland in ' + clickedYear + '</div>' +
+            '<ul>' +
+            '<li>Alcohol: ' + alcohol + '</li>' +
+            '<li>Benzodiazepine:  ' + benzo + '</li>' +
+            '<li>Cocaine:  ' + cocaine + '</li>' +
+            '<li>Fentanyl:  ' + fentanyl + '</li>' +
+            '<li>Heroin:  ' + heroin + '</li>' +
+            '<li>Prescription Opiod:  ' + opiod + '</li>' +
+            '</ul>' +
+            '</div>'
+        };
+        // add each object to the json object
+        $.extend(dataArray[i], deathsPopUp);
+      }
   }
+  initMap();
+}
 
 
 
