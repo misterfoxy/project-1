@@ -219,9 +219,9 @@ $(document).ready(function() {
 
           // Next, store values for simplicity/clarity
           var country = dataArray[i].countryName;
-          var children = dataArray[i].popData[clickedYear].percent_0_to_14;
-          var adults = dataArray[i].popData[clickedYear].percent_15_to_64;
-          var elderly = dataArray[i].popData[clickedYear].percent_65_plus;
+          var children = Math.round(dataArray[i].popData[clickedYear].percent_0_to_14);
+          var adults = Math.round(dataArray[i].popData[clickedYear].percent_15_to_64);
+          var elderly = Math.round(dataArray[i].popData[clickedYear].percent_65_plus);
           var totalPop = dataArray[i].popData[clickedYear].total;
 
           // object for onclick pop up window
@@ -230,9 +230,9 @@ $(document).ready(function() {
               '<h3 class="popTitle">Population breakdown for ' + country + ' in ' + clickedYear + ':</h3>' +
                 '<ul>' +
                   '<li>Total Population: '+ totalPop +'</li>' +
-                  '<li>Ages 0 to 14:  '+ children +'</li>' +
-                  '<li>Ages 15 to 64:  '+ adults +'</li>' +
-                  '<li>Ages 65+:  '+ elderly +'</li>' +
+                  '<li>Ages 0 to 14:  '+ children +'%</li>' +
+                  '<li>Ages 15 to 64:  '+ adults +'%</li>' +
+                  '<li>Ages 65+:  '+ elderly +'%</li>' +
                 '</ul>' +
             '</div>'};
 
@@ -314,9 +314,9 @@ $(document).ready(function() {
         else if (dataValue === "https://pinpoint-1504233261910.firebaseio.com/newWorldPopData.json") {
 
           var country = dataArray[i].countryName;
-          var children = dataArray[i].popData[clickedYear].percent_0_to_14;
-          var adults = dataArray[i].popData[clickedYear].percent_15_to_64;
-          var elderly = dataArray[i].popData[clickedYear].percent_65_plus;
+          var children = Math.round(dataArray[i].popData[clickedYear].percent_0_to_14);
+          var adults = Math.round(dataArray[i].popData[clickedYear].percent_15_to_64);
+          var elderly = Math.round(dataArray[i].popData[clickedYear].percent_65_plus);
           var totalPop = dataArray[i].popData[clickedYear].total;
 
           // object for onclick pop up window
@@ -325,9 +325,9 @@ $(document).ready(function() {
               '<h3 class="popTitle">Population breakdown for ' + country + ' in ' + clickedYear + ':</h3>' +
                 '<ul>' +
                   '<li>Total Population: '+ totalPop +'</li>' +
-                  '<li>Ages 0 to 14:  '+ children +'</li>' +
-                  '<li>Ages 15 to 64:  '+ adults +'</li>' +
-                  '<li>Ages 65+:  '+ elderly +'</li>' +
+                  '<li>Ages 0 to 14:  '+ children +'%</li>' +
+                  '<li>Ages 15 to 64:  '+ adults +'%</li>' +
+                  '<li>Ages 65+:  '+ elderly +'%</li>' +
                 '</ul>' +
             '</div>'};
 
@@ -354,6 +354,8 @@ $(document).ready(function() {
       years = [];
       uniqueYears = [];
       clickedYear = 2014;
+
+
 
       // Now we'll grab all radio buttons to find out which dataset was checked
       var whichDataset = document.getElementsByName("datasets");
