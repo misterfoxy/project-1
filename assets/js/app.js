@@ -15,9 +15,9 @@ $(document).ready(function() {
       }
     }
 
-    // Push the json's into this array 
+    // Push the json's into this array
     var dataArray = [];
-    // As needed, we generate Time Buttons for data. 
+    // As needed, we generate Time Buttons for data.
     // Initially, year values are stored in this array,
     var years = [];
     // then we remove duplicates and store in this array.
@@ -73,7 +73,7 @@ $(document).ready(function() {
 
   //****************FUNCTIONS****************//
 
-    // Each dataset has it's own function for the time being. 
+    // Each dataset has it's own function for the time being.
     // Long term, we would want to make this as generic as possible
     // or have users define necessary values for us. (ie collumn 3 is the year or city name)
       // MD Drug Death (dataset #1) function
@@ -84,7 +84,7 @@ $(document).ready(function() {
 
           // Must clear the years array w each pass or it'll dup populate due to for loop in a for loop
           years = [];
-          
+
           // Store the year values in the years array for the Time Buttons
           years.push(dataArray[j].calendar_year);
 
@@ -162,6 +162,7 @@ $(document).ready(function() {
 
           // Next, store values for simplicity/clarity
           var deaths = dataArray[i].alcohol_impaired_driving_deaths;
+          var allDeaths = dataArray[i].occupant_deaths;
           var stName = dataArray[i].state_state;
 
           // get the latitude and longitude values
@@ -175,9 +176,9 @@ $(document).ready(function() {
               lng: y
             }
           };
-          // infoWindow content 
+          // infoWindow content
           var deathsPopUp = {
-            popUp: "<div id='pop'><div class='popTitle'>" + stName + "</div><p>" + deaths + " drunk driver deaths</p></div>"
+            popUp: "<div id='pop'><div class='popTitle'>" + stName + "</div><p>" + deaths + " drunk driver deaths</p><p>"+allDeaths+" automobile collission fatalities</p></div>"
           };
           // object for the marker labels
           var deathsLabel = {
@@ -197,7 +198,7 @@ $(document).ready(function() {
 
           // Must clear the years array w each pass or it'll dup populate due to for loop in a for loop
           years = [];
-          
+
           // Store the year values in the years array for the Time Buttons
           for (var j = 1990; j < 2015; j++) {
             years.push(dataArray[i].popData[j].year);
@@ -268,13 +269,13 @@ $(document).ready(function() {
     };
 
 
-    // Gets the year value and displays the relevant data 
+    // Gets the year value and displays the relevant data
     function grabYear(){
 
       // Get the data-year value from the Time Button that was clicked
       clickedYear = $(this).attr('data-year');
 
-      // Loop thru the dataArray, 
+      // Loop thru the dataArray,
       for (var i = 0; i < dataArray.length; i++) {
 
         // and depending on which dataset it is, get new values and display relevant data.
@@ -311,7 +312,7 @@ $(document).ready(function() {
         }
 
         else if (dataValue === "https://pinpoint-1504233261910.firebaseio.com/newWorldPopData.json") {
-          
+
           var country = dataArray[i].countryName;
           var children = dataArray[i].popData[clickedYear].percent_0_to_14;
           var adults = dataArray[i].popData[clickedYear].percent_15_to_64;
@@ -389,12 +390,12 @@ $(document).ready(function() {
           // Now we have actions depending on which dataset was chosen.
             // If it the data is the ***DRUG DEATHS*** data
             if (dataValue === "https://data.maryland.gov/resource/ryrr-nv83.json") {
-              dataset1();            
+              dataset1();
             }
 
             // Else, if the data was the ***DRUNK DRIVING*** data...
             else if (dataValue === "https://data.cdc.gov/resource/xhcb-kq4k.json") {
-              dataset2();            
+              dataset2();
             }
 
             // Else, if it the data is the ***WW POP*** data
@@ -412,29 +413,5 @@ $(document).ready(function() {
 
     // Added dynamically generated button onclick to pull data year
     $(document).on("click", '.timeBtn', grabYear);
-
-
-
-
-  // What does this code do?  It is getting an error in the console for "infowindow" not being defined.
-
-  /*google.maps.event.addListener(infowindow, 'domready', function() {
-
-    // Reference to the DIV which receives the contents of the infowindow using jQuery
-    var iwOuter = $('.gm-style-iw');
-
-  // The DIV we want to change is above the .gm-style-iw DIV.
-  // So, we use jQuery and create a iwBackground variable,
-  // and took advantage of the existing reference to .gm-style-iw for the previous DIV with .prev().
-    
-    var iwBackground = iwOuter.prev();
-
-    // Remove the background shadow DIV
-    iwBackground.children(':nth-child(2)').css({'display' : 'none'});
-
-    // Remove the white background DIV
-    iwBackground.children(':nth-child(4)').css({'display' : 'none'});
-
-  });*/
 
 });
