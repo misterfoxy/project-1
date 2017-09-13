@@ -393,18 +393,21 @@ $(document).ready(function() {
             // If it the data is the ***DRUG DEATHS*** data
             if (dataValue === "https://data.maryland.gov/resource/ryrr-nv83.json") {
               dataset1();
+              $('#currentDataset').text("Change over time in set location");
             }
 
             // Else, if the data was the ***DRUNK DRIVING*** data...
             else if (dataValue === "https://data.cdc.gov/resource/xhcb-kq4k.json") {
               dataset2();
+              $('#currentDataset').text("Value of multiple locations for set time");
             }
 
             // Else, if it the data is the ***WW POP*** data
             else if (dataValue === "https://pinpoint-1504233261910.firebaseio.com/newWorldPopData.json") {
               dataset3();
+              $('#currentDataset').text("Long Term Vision of Project");
             }
-            console.log(response[i]);
+            
           }
 
           initMap();
