@@ -178,7 +178,10 @@ $(document).ready(function() {
           };
           // infoWindow content
           var deathsPopUp = {
-            popUp: "<div id='pop'><div class='popTitle'>" + stName + "</div><p>" + deaths + " drunk driver deaths</p><p>"+allDeaths+" automobile collission fatalities</p></div>"
+            popUp: "<div id='pop'><div class='popTitle'>" + stName + "</div>" +
+            "<p>" + deaths + " drunk driver deaths</p>" +
+            "<p>"+allDeaths+" total auto fatalities due to a drunk driver</p>"+
+            "</div>"
           };
           // object for the marker labels
           var deathsLabel = {
